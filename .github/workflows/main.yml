@@ -15,3 +15,18 @@ jobs:
 
       - name: Display Workflow Message
         run: echo "GitHub Actions workflow is running!"
+      - name: Update HTML - Team Leader
+        if: github.actor == 'StupidCourage'
+        run: |
+          sed -i '/<\/body>/i <p>Updated by Team Leader on '"$(date)"'</p>' index.html
+
+      - name: Update HTML - Member 1
+        if: github.actor == 'MEMBER1_USERNAME'
+        run: |
+          sed -i '/<\/body>/i <p>Updated by Team Member 1 on '"$(date)"'</p>' index.html
+
+      - name: Update HTML - Member 2
+        if: github.actor == 'MEMBER2_USERNAME'
+        run: |
+          sed -i '/<\/body>/i <p>Updated by Team Member 2 on '"$(date)"'</p>' index.html
+        
