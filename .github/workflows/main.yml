@@ -1,0 +1,17 @@
+name: Team Website Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Display Workflow Message
+        run: echo "GitHub Actions workflow is running!"
